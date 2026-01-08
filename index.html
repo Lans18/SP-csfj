@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lance Canturias | Web Developer Portfolio</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <h2 class="logo">Lance.dev</h2>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero container">
+            <div class="hero-content">
+                <h1>Hi, I’m <span class="highlight">Lance A. Canturias</span></h1>
+                <h2>Web Developer & UI Designer</h2>
+                <p>
+                    I build clean, responsive, and user-focused websites using modern web technologies.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary">View Projects</a>
+                    <a href="https://github.com/Lans18" class="btn secondary" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section container">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="about-content">
+                <p>
+                    Lance A. Canturias is a dedicated third-year Information Technology student at Colegio de San Francisco Javier, pursuing his passion for technology and innovation in the digital age. With a unique blend of technical skill and creative thinking, Lance approaches coding not just as a technical discipline, but as an expressive art form.
+                </p>
+
+                <p>
+                    When I’m not coding, I enjoy learning new technologies, improving my skills,
+                    and working on personal projects.
+                </p>
+
+                <h3>Technologies I Use</h3>
+                <ul class="skills-list">
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>PHP</li>
+                    <li>Git & GitHub</li>
+                    <li>Responsive Web Design</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section container">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="project1.png" alt="E-commerce website preview">
+                    </div>
+
+                    <div class="project-info">
+                        <h3>E-commerce Website</h3>
+                        <p>
+                            A fully responsive online store featuring product listings,
+                            shopping cart functionality, and a clean UI.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Lans18/Backend" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="student-manager.png" alt="Student manager app preview">
+                    </div>
+
+                    <div class="project-info">
+                        <h3>Student Manager App</h3>
+                        <p>
+                            A web application designed to manage student records
+                            and organize academic data efficiently.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>PHP</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Lans18/v0-Student" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section container">
+            <h2 class="section-title">Get In Touch</h2>
+
+            <p class="contact-text">
+                I’m open to new opportunities, collaborations, and interesting projects.
+                Feel free to reach out!
+            </p>
+
+            <div class="contact-info">
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>
+                            <a href="mailto:canturiaslancea@gmail.com">
+                                canturiaslancea@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Dipolog City, Zamboanga del Norte, Philippines</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="social-icons">
+                <a href="https://github.com/Lans18" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-codepen"></i></a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; <span id="current-year"></span> Lance A. Canturias. All rights reserved.</p>
+        <p>Built with <i class="fas fa-heart"></i> using HTML & CSS</p>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
