@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <!-- Animated Background Canvas -->
+    <canvas id="dynamicBg"></canvas>
 
     <!-- Header / Navigation -->
     <header class="header">
@@ -131,6 +133,116 @@
                     </div>
                 </article>
 
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="portfolio.png" alt="Personal portfolio website">
+                    </div>
+
+                    <div class="project-info">
+                        <h3>Personal Portfolio</h3>
+                        <p>
+                            A modern, responsive portfolio website showcasing my skills, 
+                            projects, and experience as a web developer.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Lans18" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="task-tracker.png" alt="Task tracker application">
+                    </div>
+
+                    <div class="project-info">
+                        <h3>Task Tracker App</h3>
+                        <p>
+                            An interactive task management application with real-time updates,
+                            local storage persistence, and a clean intuitive interface.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Lans18" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="weather-app.png" alt="Weather application interface">
+                    </div>
+
+                    <div class="project-info">
+                        <h3>Weather Dashboard</h3>
+                        <p>
+                            A real-time weather application that fetches current weather data
+                            and displays forecasts with an attractive, user-friendly design.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>API</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Lans18" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 6 -->
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="chat-app.png" alt="Chat application preview">
+                    </div>
+
+                    <div class="project-info">
+                        <h3>Real-time Chat Application</h3>
+                        <p>
+                            A messaging platform with user authentication, real-time message 
+                            synchronization, and modern UI for seamless communication.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Lans18" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </section>
 
@@ -184,6 +296,87 @@
     <!-- Script -->
     <script defer>
   document.getElementById("current-year").textContent = new Date().getFullYear();
+
+  // Dynamic Background Animation
+  const canvas = document.getElementById('dynamicBg');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  
+  // Track mouse movement
+  document.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 100 + 50;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.color = ['rgba(56, 189, 248, 0.05)', 'rgba(34, 197, 94, 0.05)', 'rgba(30, 41, 59, 0.1)'][Math.floor(Math.random() * 3)];
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      // Wrap around edges
+      if (this.x > canvas.width) this.x = 0;
+      if (this.x < 0) this.x = canvas.width;
+      if (this.y > canvas.height) this.y = 0;
+      if (this.y < 0) this.y = canvas.height;
+
+      // Gentle attraction to mouse
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < 300) {
+        this.vx += dx * 0.00001;
+        this.vy += dy * 0.00001;
+      }
+
+      // Friction
+      this.vx *= 0.995;
+      this.vy *= 0.995;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+  }
+
+  const particles = [];
+  for (let i = 0; i < 6; i++) {
+    particles.push(new Particle());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    particles.forEach(particle => {
+      particle.update();
+      particle.draw();
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
 </script>
 
 </body>
